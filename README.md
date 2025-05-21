@@ -1,3 +1,101 @@
+# 🚀 CI/CD Pipeline using GitHub Actions, Amazon ECR, ArgoCD, Helm & EKS
+
+This project implements a GitOps-based CI/CD pipeline using:
+- GitHub for source and GitOps repositories
+- GitHub Actions for continuous integration
+- Amazon ECR for container image storage
+- Helm for Kubernetes deployment packaging
+- Argo CD for automated deployment
+- Amazon EKS as the Kubernetes cluster
+
+---
+
+## 🧱 Tech Stack
+- GitHub
+- GitHub Actions
+- Amazon ECR
+- Helm
+- Argo CD
+- Amazon EKS
+
+---
+
+## 🔁 CI/CD Workflow – Step-by-Step
+
+### 1. ✅ Code Commit
+- A developer commits and pushes application code to the **source repository** on GitHub.
+
+### 2. 🏗️ GitHub Actions (CI Pipeline)
+- GitHub Actions is triggered upon code push.
+- The workflow:
+  - Builds the Docker image.
+  - Tags the image (e.g., with Git SHA or version).
+  - Pushes the image to **Amazon ECR**.
+
+### 3. 📝 Helm Chart Update
+- The GitHub Actions workflow then:
+  - Clones the **GitOps repository**.
+  - Updates the `values.yaml` in the Helm chart with the **new image tag**.
+  - Commits and pushes this change to the GitOps repository.
+
+### 4. 🔁 GitOps Repository
+- This repo contains Helm charts with values (including image versions).
+- Once updated, it serves as the **single source of truth** for deployment.
+
+### 5. 🤖 Argo CD Sync
+- Argo CD monitors the GitOps repository (via polling or webhook).
+- It detects the new commit with the updated Helm values.
+- Argo CD syncs the changes and applies the deployment to the **Amazon EKS cluster**.
+
+---
+
+## 🔄 Full Flow Summary
+
+```text
+1. Developer pushes code to GitHub
+2. GitHub Actions builds & pushes Docker image to Amazon ECR
+3. GitHub Actions updates Helm chart (image tag) in GitOps repo
+4. Argo CD detects change in GitOps repo
+5. Argo CD deploys the updated Helm chart to Amazon EKS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Deploy Netflix Clone on Cloud using Jenkins - DevSecOps Project!
 
 ### **Phase 1: Initial Setup and Deployment**
