@@ -1,3 +1,20 @@
+----
+###  Workflow Options for Deployment
+This project supports two distinct deployment workflows for Kubernetes:
+
+GitOps Workflow with ArgoCD & GitHub Actions:
+The application is deployed to the Kubernetes cluster using ArgoCD, with GitHub Actions automating the synchronization and continuous delivery process directly from the GitHub repository.
+
+Jenkins-based Workflow with ArgoCD:
+Alternatively, Jenkins can be used in place of GitHub Actions to automate the deployment process with ArgoCD, offering flexibility for teams preferring Jenkins pipelines for CI/CD.
+
+Both workflows utilize ArgoCD for declarative GitOps deployment, differing only in the CI tool used for automation.
+
+
+---
+
+
+
 # 🚀 CI/CD Pipeline using GitHub Actions, Amazon ECR, ArgoCD, Helm & EKS
 
 This project implements a GitOps-based CI/CD pipeline using:
@@ -56,35 +73,6 @@ This project implements a GitOps-based CI/CD pipeline using:
 3. GitHub Actions updates Helm chart (image tag) in GitOps repo
 4. Argo CD detects change in GitOps repo
 5. Argo CD deploys the updated Helm chart to Amazon EKS
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
