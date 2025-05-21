@@ -51,13 +51,11 @@ This project implements a GitOps-based CI/CD pipeline using:
 
 ## 🔄 Full Flow Summary
 
-```text
 1. Developer pushes code to GitHub
 2. GitHub Actions builds & pushes Docker image to Amazon ECR
 3. GitHub Actions updates Helm chart (image tag) in GitOps repo
 4. Argo CD detects change in GitOps repo
 5. Argo CD deploys the updated Helm chart to Amazon EKS
-
 
 
 
